@@ -13,20 +13,10 @@ class Stories extends Component {
     return (
       <div>
         <h1>Stories</h1>
-        { this.props.stories &&
-          <ul>
-            { this.props.stories.map(story => (
-              (story.isEditing === false) 
-                ? <li key={ story.id }>
-                    <StoryHolder title={ story.title }
-                      text={ story.text }
-                      editStory={ this.props.editStory }
-                    />
-                  </li>
-                : <h1>Hi</h1>
-            )) }
-          </ul>
-        }
+        <StoryHolder
+          stories={ this.props.stories }
+          editStory={ this.props.editStory }
+        />        
       </div>
     );
   }

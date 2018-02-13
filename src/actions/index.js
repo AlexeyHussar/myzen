@@ -19,9 +19,21 @@ const dispatchEditing = (editedStory) => ({
 
 export const editStory = (id) => (dispatch, getState) => {
   const stories = getState().stories;
-  console.log(stories);
   const story = stories.find(s => s.id === id);
   const isEditing = { ...story, isEditing: !story.isEditing };
   updateStory(isEditing)
     .then(editingStory => dispatch(dispatchEditing(editingStory)));
+};
+
+export const changeStory = (id, changedText) => (dispatch, getState) => {
+  const stories = getState().stories;
+  const story = stories.find(s => s.id === id);
+  const changed = { 
+    ...story,
+    isEditing: !story.isEditing,
+    text: changedText
+  };
+  console.log(changed.text);
+  updateStory(changed)
+    .then(changedStory => dispatch(dispatchEditing(changedStory)));
 };
