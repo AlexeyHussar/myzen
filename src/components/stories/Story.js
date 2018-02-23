@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 
-export const Story = ({ title, text, editStory, id }) => (
+export const Story = ({ title, text, id, editStory, deleteStory }) => (
   <div className='story'>
     <Card className='card'>
       <CardHeader
@@ -15,7 +15,7 @@ export const Story = ({ title, text, editStory, id }) => (
       </CardText>
       <CardActions>
         <FlatButton label='Edit' onClick={ () => editStory(id) } />
-        <FlatButton label='Delete' />
+        <FlatButton label='Delete' onClick={ () => deleteStory(id) } />
       </CardActions>
     </Card>
   </div>

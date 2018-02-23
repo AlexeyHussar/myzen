@@ -1,13 +1,13 @@
-import { DISPATCHING_STORIES, UPDATING_STORY } from '../actions';
+import * as actions from '../actions';
 
 export const appReducer = (state = {}, action) => {
   switch (action.type) {
-    case DISPATCHING_STORIES:
+    case actions.DISPATCHING_STORIES:
       return {
         ...state,
         stories: action.payload
       };
-    case UPDATING_STORY:
+    case actions.UPDATING_STORY:
       return {
         ...state,
         stories: state.stories
@@ -16,7 +16,23 @@ export const appReducer = (state = {}, action) => {
             : s
           )
       };
+    case actions.ERASING_STORY:
+      return {
+        ...state,
+        stories: state.stories
+          .filter(s => s.id !== action.payload)
+      };
+    case actions.CREATING_STORY:
+      return {
+        ...state,
+        stories: [
+          action.payload, 
+          ...state.stories
+        ]
+      };
     default:
       return state;
   }
 };
+
+// DISPATCHING_STORIES, UPDATING_STORY, ERASING_STORY, CREATING_STORY

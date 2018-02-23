@@ -2,7 +2,7 @@ import React from 'react';
 import { Story } from './Story';
 import  EditStoryForm  from './EditStoryForm';
 
-export const StoryHolder = ({ stories, editStory }) => (
+export const StoryHolder = ({ stories, editStory, deleteStory }) => (
   <div className='storyHolder'>
     { stories && 
       <ul>
@@ -12,8 +12,9 @@ export const StoryHolder = ({ stories, editStory }) => (
                 <Story 
                   title={ story.title }
                   text={ story.text }
-                  editStory={ () => editStory(story.id) }
                   id={ story.id }
+                  editStory={ () => editStory(story.id) }
+                  deleteStory={ () => deleteStory(story.id) }
                 />
               </li>
             : <li key={ story.id}>

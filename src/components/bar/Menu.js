@@ -13,16 +13,16 @@ export class Menu extends Component  {
     return (
       <div className='menu-container'>
         <DropDownMenu 
-          value={this.state.value} 
+          value={ this.state.value } 
           onChange={ this.handleChange }
         >
-          <MenuItem value={0} 
+          <MenuItem value={ 0 } 
             primaryText='Home' 
-            containerElement={<Link to='/' />}>
+            containerElement={ <Link to='/' /> }>
           </MenuItem>
-          <MenuItem value={1} 
+          <MenuItem value={ 1 } 
             primaryText='Stories' 
-            containerElement={<Link to='/stories' /> }>
+            containerElement={ <Link to='/stories' /> }>
           </MenuItem>
         </DropDownMenu>  
       </div>
