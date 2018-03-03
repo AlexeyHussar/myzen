@@ -5,8 +5,6 @@ import { addStory } from '../../actions/index';
 import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
 
-// And syles
-
 class AddStory extends Component {
 
   state = {
@@ -31,34 +29,36 @@ class AddStory extends Component {
 
   render() {
     return (
-      <div className='add-story-form-container'>
-        <form onSubmit={ this.submitHandler } >
-          <label htmlFor="titleField">Title: </label>
-          <TextField  className='add-story-text-field' 
-            name='titleField'
-            fullWidth={ true }
-            multiLine={ false }
-            value={ this.state.title }
-            onChange={ this.handleTitleChange }
-          />
-          <label htmlFor="textField">Text: </label>
-          <TextField className='add-story-text-field'
-            name='textField'
-            fullWidth={ true }
-            multiLine={ true }
-            value={ this.state.text }
-            onChange={ this.handleTextChange }
-          />
-          <div className='add-button-container'>
-            <FlatButton label='Add' type='submit' />
-            <FlatButton label='Cancel' 
-              containerElement={ <Link to='/stories' /> }
+      <div className='add-story-component'>
+        <div className='add-story-form-container'>
+          <form onSubmit={ this.submitHandler } >
+            <label htmlFor="titleField">Title: </label>
+            <TextField  className='add-story-text-field' 
+              name='titleField'
+              fullWidth={ true }
+              multiLine={ false }
+              value={ this.state.title }
+              onChange={ this.handleTitleChange }
             />
-          </div>
-        </form>
-        { this.state.isRedirecting && (
-          <Redirect to='/stories' /> )
-        }
+            <label htmlFor="textField">Text: </label>
+            <TextField className='add-story-text-field'
+              name='textField'
+              fullWidth={ true }
+              multiLine={ true }
+              value={ this.state.text }
+              onChange={ this.handleTextChange }
+            />
+            <div className='add-button-container'>
+              <FlatButton label='Add' type='submit' className='fltbtn' />
+              <FlatButton label='Cancel' className='fltbtn-right'
+                containerElement={ <Link to='/stories' /> }
+              />
+            </div>
+          </form>
+          { this.state.isRedirecting && (
+            <Redirect to='/stories' /> )
+          }
+        </div>
       </div>
     );
   }

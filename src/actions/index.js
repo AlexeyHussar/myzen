@@ -8,6 +8,8 @@ export const DISPATCHING_STORIES = 'DISPATCHING_STORIES';
 export const UPDATING_STORY = 'UPDATING_STORY';
 export const ERASING_STORY = 'ERASING_STORY';
 export const CREATING_STORY = 'CREATING_STORY';
+export const HANDLE_LOGIN = 'HANDLE_LOGIN';
+export const HANDLE_LOGOUT = 'HANDLE_LOGOUT';
 
 const dispatchStories = (stories) => ({
   type: 'DISPATCHING_STORIES',
@@ -64,3 +66,11 @@ export const addStory = (title, text) => (dispatch) => {
   createStory(title, text)
     .then(story => dispatch(newStory(story)));
 };
+
+export const handleLogout = () => ({
+  type: HANDLE_LOGOUT
+});
+
+export const handleLogin = () => ({
+  type: HANDLE_LOGIN
+});

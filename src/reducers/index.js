@@ -1,13 +1,25 @@
-import * as actions from '../actions';
+import {
+  DISPATCHING_STORIES,
+  UPDATING_STORY, 
+  ERASING_STORY, 
+  CREATING_STORY,
+  HANDLE_LOGOUT,
+  HANDLE_LOGIN
+} from '../actions';
 
-export const appReducer = (state = {}, action) => {
+const initialState = {
+  isLogged: false,
+  stories: []
+};
+
+export const appReducer = (state = initialState, action) => {
   switch (action.type) {
-    case actions.DISPATCHING_STORIES:
+    case DISPATCHING_STORIES:
       return {
         ...state,
-        stories: action.payload
+        stories: action.payload.reverse()
       };
-    case actions.UPDATING_STORY:
+    case UPDATING_STORY:
       return {
         ...state,
         stories: state.stories
@@ -16,13 +28,13 @@ export const appReducer = (state = {}, action) => {
             : s
           )
       };
-    case actions.ERASING_STORY:
+    case ERASING_STORY:
       return {
         ...state,
         stories: state.stories
           .filter(s => s.id !== action.payload)
       };
-    case actions.CREATING_STORY:
+    case CREATING_STORY:
       return {
         ...state,
         stories: [
@@ -30,9 +42,17 @@ export const appReducer = (state = {}, action) => {
           ...state.stories
         ]
       };
+    case HANDLE_LOGIN:
+      return {
+        ...state,
+        isLogged: true
+      };
+    case HANDLE_LOGOUT:
+      return {
+        ...state,
+        isLogged: false
+      };
     default:
       return state;
   }
 };
-
-// DISPATCHING_STORIES, UPDATING_STORY, ERASING_STORY, CREATING_STORY

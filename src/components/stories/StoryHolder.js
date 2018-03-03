@@ -3,7 +3,7 @@ import { Story } from './Story';
 import  EditStoryForm  from './EditStoryForm';
 
 export const StoryHolder = ({ stories, editStory, deleteStory }) => (
-  <div className='storyHolder'>
+  <div className='story-holder'>
     { stories && 
       <ul>
         { stories.map(story => (
