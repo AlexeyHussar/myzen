@@ -42,7 +42,6 @@ export const changeStory = (id, changedText) => (dispatch, getState) => {
     isEditing: !story.isEditing,
     text: changedText
   };
-  console.log(changed.text);
   updateStory(changed)
     .then(changedStory => dispatch(dispatchEditing(changedStory)));
 };

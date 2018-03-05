@@ -2,14 +2,15 @@ import React from 'react';
 import { Story } from './Story';
 import  EditStoryForm  from './EditStoryForm';
 
-export const StoryHolder = ({ stories, editStory, deleteStory }) => (
+export const StoryHolder = ({ isLogged, stories, editStory, deleteStory }) => (
   <div className='story-holder'>
     { stories && 
       <ul>
         { stories.map(story => (
           (story.isEditing === false)
             ? <li key={ story.id }>
-                <Story 
+                <Story
+                  isLogged={ isLogged }
                   title={ story.title }
                   text={ story.text }
                   id={ story.id }

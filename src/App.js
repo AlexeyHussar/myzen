@@ -11,9 +11,11 @@ class App extends Component {
       <Router>
         <MuiThemeProvider>
           <div className='App'>
-            <div className='primary-container'>
+            <div>
               <Bar />
-              <Routes />
+              <div className='first'>
+                <Routes />
+              </div>
             </div>
           </div>
         </MuiThemeProvider>  

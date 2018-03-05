@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import connect from 'react-redux/lib/connect/connect';
-//import { Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
@@ -24,9 +24,9 @@ class Login extends Component {
  
   render() {
 
-/*     const { from } = this.props.location.state ||
+    const { from } = this.props.location.state ||
       { from: { pathname: '/'} };
- */
+
     const actions = [
       <FlatButton
         label='Login'
@@ -40,9 +40,9 @@ class Login extends Component {
       /> 
     ];
 
-/*     if (this.state.isOpen === false) 
+    if (this.state.isOpen === false) 
       return <Redirect to={ from } />;
- */
+
     return (
       <div>
         <Dialog

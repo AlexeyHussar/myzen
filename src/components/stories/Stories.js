@@ -12,14 +12,20 @@ class Stories extends Component {
   };
 
   render() {
+
+    const { isLogged } = this.props;
+
     return (
-      <div>
+      <div className='stories'>
         <h1>Stories</h1>
-        <FlatButton 
-          label='Add another story'
-          containerElement={ <Link to='/stories/add' /> }
-        />
+        { isLogged && 
+          <FlatButton 
+            label='Add another story'
+            containerElement={ <Link to='/stories/add' /> }
+          />
+        }
         <StoryHolder
+          isLogged={ isLogged }
           stories={ this.props.stories }
           editStory={ this.props.editStory }
           deleteStory={ this.props.deleteStory }
@@ -32,7 +38,8 @@ class Stories extends Component {
 
 export default connect(
   state => ({ 
-    stories: state.stories
+    stories: state.stories,
+    isLogged: state.isLogged
   }),
   { loadStories, editStory, deleteStory }
 )(Stories);
